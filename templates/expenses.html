@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Expense List</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h2>Expense List</h2>
+<h3>total expense:{{total}}</h3>
+
+<table border="1">
+
+<tr>
+<th>ID</th>
+<th>Amount</th>
+<th>Category</th>
+<th>action</th>
+</tr>
+
+{% for expense in expenses %}
+
+<tr>
+<td>{{ expense[0] }}</td>
+<td>{{ expense[1] }}</td>
+<td>{{ expense[2]  }}</td>
+<td>
+    <a href="/delete/{{expense[0]}}" onclick="return confirm('are you sure')">delete</a>
+</td>
+</tr>
+
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/">Back</a>
+
+</body>
+</html>
+
